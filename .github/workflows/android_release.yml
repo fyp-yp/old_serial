@@ -3,9 +3,9 @@ name: Android 64-bit Release
 on:
   push:
     branches:
-      - '*'        # ËùÓÐ·ÖÖ§
+      - '*'        # æ‰€æœ‰åˆ†æ”¯
     tags:
-      - 'v*'       # ËùÓÐ v ¿ªÍ·µÄ±êÇ©
+      - 'v*'       # æ‰€æœ‰ v å¼€å¤´çš„æ ‡ç­¾
     paths-ignore:
       - 'docs/**'
   pull_request:
@@ -81,9 +81,9 @@ jobs:
           mkdir gstreamer
           tar -xf gstreamer-1.0-android-universal-1.18.6.tar.xz -C gstreamer
 
-      - name: Update android manifest (if not stable)
-        if: github.ref_name != 'Stable'
-        run: ${SOURCE_DIR}/tools/update_android_manifest_package.sh ${{ github.ref_name }}
+      # - name: Update android manifest (if not stable)
+      #   if: github.ref_name != 'Stable'
+      #   run: ${SOURCE_DIR}/tools/update_android_manifest_package.sh ${{ github.ref_name }}
 
       - name: Build APK (arm64-v8a)
         working-directory: ${{ runner.temp }}/shadow_build_dir
